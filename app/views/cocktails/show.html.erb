@@ -1,0 +1,12 @@
+<div class="container">
+  <h1><%= @cocktail.name %></h1>
+  <div class="ingredients">
+    <% @cocktail.doses.each do |dose| %>
+      <div class="ingredient">
+        <p><%= dose.description %> of <%= dose.ingredient.name %></p>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to 'Edit', new_cocktail_dose_path(@cocktail.id), class: "btn btn-primary"%>
+  <%= link_to "Cocktails", cocktails_path, class: "btn btn-primary" %>
+</div>
