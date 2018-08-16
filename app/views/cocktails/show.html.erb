@@ -1,12 +1,14 @@
 <div class="container">
   <h1><%= @cocktail.name %></h1>
+  <p> <%= link_to 'Add ingredients', new_cocktail_dose_path(@cocktail.id), class: "btn btn-primary"%> </p>
   <div class="ingredients">
     <% @cocktail.doses.each do |dose| %>
       <div class="ingredient">
-        <p><%= dose.description %> of <%= dose.ingredient.name %></p>
+        <p><%= dose.description %> of <%= dose.ingredient.name %>
+          <%= link_to "Remove", dose_path(dose.id), method: :delete %>
+        </p>
       </div>
     <% end %>
   </div>
-  <%= link_to 'Edit', new_cocktail_dose_path(@cocktail.id), class: "btn btn-primary"%>
-  <%= link_to "Cocktails", cocktails_path, class: "btn btn-primary" %>
+  <%= link_to "Back", cocktails_path, class: "btn btn-primary" %>
 </div>
