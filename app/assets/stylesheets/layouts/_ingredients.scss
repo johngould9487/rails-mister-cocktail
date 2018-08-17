@@ -1,0 +1,23 @@
+.ingredients {
+  display: flex;
+  justify-content: space-around;
+  align-items: top;
+}
+// .ingredients h3 {
+//   margin-top: 0;
+// }
+
+.current-ingredients a {
+  color: $green;
+}
+.add-ingredients {
+  flex: 0 0 300px;
+}
+
+.current-ingredients {
+  flex: 1 0 auto;
+}
+
+.spacer {
+  flex: 0 0 30px;
+}

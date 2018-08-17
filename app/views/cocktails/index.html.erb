@@ -1,11 +1,33 @@
-<div class="container">
-  <h1>Cocktails</h1>
-  <div class="cocktails">
-    <% @cocktails.each do |cocktail| %>
-      <div class="cocktail">
-        <p> <%= link_to cocktail.name, cocktail_path(cocktail.id) %> </p>
-      </div>
-    <% end %>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(190, 211, 96,0.3) 0%, rgba(50, 50, 50, 0.3) 75%), url('<%= image_path "cocktail", alt: "alttext" %>');">
+  <div class="banner-content">
+    <h1>Le Cocktail</h1>
+    <p>Discover the best cocktails in London</p>
   </div>
-  <%= link_to "Make a new cocktail", new_cocktail_path, class: "btn btn-primary" %>
+</div>
+<div class="wrapper">
+  <div class="container">
+    <div class="cocktails">
+      <div class="row">
+        <% @cocktails.each do |cocktail| %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card">
+            <div class="card-description">
+              <h2><%= cocktail.name %></h2>
+              <% cocktail.doses.each do |dose| %>
+                <p><%= dose.description %> <%= dose.ingredient.name %> </p>
+              <% end %>
+            </div>
+            <%= link_to "", cocktail_path(cocktail.id), class: "card-link" %>
+          </div>
+        </div>
+        <% end %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card" style="text-align: center; background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1531387367216-681093c0279b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=73ca72de11ae9cd2fa7367dc1ee76705&auto=format&fit=crop&w=500&q=60');">
+            <%= link_to "", new_cocktail_path, class: "card-link" %>
+            <span><i class="fas fa-plus"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
